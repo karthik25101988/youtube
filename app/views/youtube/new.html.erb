@@ -1,0 +1,19 @@
+<h1> POST YOUR COMMENT </h1>
+<h1>New Comment</h1>
+
+<% form_for :com, :url => {:action => "create"} do |f| %>
+   <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :mail_id %><br />
+    <%= f.text_field :mail_id %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %> <%= f.submit "POST"  %>
+    <%= link_to 'Click Here', :action => "list" %> to view all comments
+  </p>
+<% end %>

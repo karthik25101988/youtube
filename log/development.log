@@ -1,0 +1,145 @@
+  [4;36;1mSQL (46.9ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: Can't create table 'youtube_development.schema_migrations' (errno: 121): CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (140.6ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (171.9ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateComments (20101105145123)
+  [4;35;1mSQL (78.1ms)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `mail_id` varchar(255), `comment` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (46.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101105145123')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (31.2ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#comments (for 127.0.0.1 at 2010-11-05 20:34:46) [GET]
+Rendering youtube/comments
+Completed in 78ms (View: 62, DB: 0) | 200 OK [http://localhost/youtube/comments]
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#video (for 127.0.0.1 at 2010-11-05 20:34:46) [GET]
+Rendering youtube/video
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/youtube/video]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#new (for 127.0.0.1 at 2010-11-05 20:34:47) [GET]
+  [4;36;1mComment Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Rendering youtube/new
+Completed in 1953ms (View: 1922, DB: 16) | 200 OK [http://localhost/youtube/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#create (for 127.0.0.1 at 2010-11-05 20:35:26) [POST]
+  Parameters: {"com"=>{"comment"=>"nice trailer", "name"=>"karthik", "mail_id"=>"karthik25101988@gmail.com"}, "commit"=>"POST", "authenticity_token"=>"CIqajvKr4DFO8xHlwKTp5RyfuF+yn+maexwG3PEzZyY="}
+  [4;35;1mComment Columns (15.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mComment Create (15.6ms)[0m   [0mINSERT INTO `comments` (`name`, `comment`, `created_at`, `updated_at`, `mail_id`) VALUES('karthik', 'nice trailer', '2010-11-05 15:05:26', '2010-11-05 15:05:26', 'karthik25101988@gmail.com')[0m
+  [4;36;1mSQL (46.9ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/youtube/new
+Completed in 109ms (DB: 78) | 302 Found [http://localhost/youtube/create]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#new (for 127.0.0.1 at 2010-11-05 20:35:26) [GET]
+  [4;35;1mComment Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Rendering youtube/new
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/youtube/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#list (for 127.0.0.1 at 2010-11-05 20:35:43) [GET]
+  [4;36;1mComment Load (46.9ms)[0m   [0;1mSELECT * FROM `comments` ORDER BY name[0m
+Rendering youtube/list
+  [4;35;1mComment Columns (15.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Completed in 109ms (View: 31, DB: 78) | 200 OK [http://localhost/youtube/list]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#new (for 127.0.0.1 at 2010-11-05 20:35:47) [GET]
+  [4;36;1mComment Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Rendering youtube/new
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/youtube/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#comments (for 127.0.0.1 at 2010-11-05 20:35:56) [GET]
+Rendering youtube/comments
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/youtube/comments]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#video (for 127.0.0.1 at 2010-11-05 20:35:56) [GET]
+Rendering youtube/video
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/youtube/video]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#new (for 127.0.0.1 at 2010-11-05 20:35:56) [GET]
+  [4;35;1mComment Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Rendering youtube/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/youtube/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#comments (for 127.0.0.1 at 2010-11-05 20:38:12) [GET]
+Rendering youtube/comments
+Completed in 16ms (View: 16, DB: 16) | 200 OK [http://localhost/youtube/comments]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#video (for 127.0.0.1 at 2010-11-05 20:38:12) [GET]
+Rendering youtube/video
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/youtube/video]
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#new (for 127.0.0.1 at 2010-11-05 20:38:12) [GET]
+  [4;36;1mComment Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+Rendering youtube/new
+Completed in 31ms (View: 16, DB: 31) | 200 OK [http://localhost/youtube/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#comments (for 127.0.0.1 at 2010-11-05 20:38:25) [GET]
+Rendering youtube/comments
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/youtube/comments]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#video (for 127.0.0.1 at 2010-11-05 20:38:26) [GET]
+Rendering youtube/video
+Completed in 0ms (View: 0, DB: 16) | 200 OK [http://localhost/youtube/video]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing YoutubeController#new (for 127.0.0.1 at 2010-11-05 20:38:26) [GET]
+  [4;35;1mComment Columns (15.6ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+Rendering youtube/new
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/youtube/new]

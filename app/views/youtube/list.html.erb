@@ -1,0 +1,12 @@
+<h2><%= "COMMENTS POSTED TILL NOW" %></h2>
+<%= link_to 'back', :action => 'new' %>
+
+<% for c in @comments %>
+<ul>
+<li><%= c.name %>
+    <blockquote>
+    <%= c.comment %>
+  </blockquote>
+</li>
+</ul>
+<% end %>
